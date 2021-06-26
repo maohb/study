@@ -22,17 +22,19 @@ public class ContainerSingleton {
 
     public static Object getInstance(String className){
         Object instance = null;
-        try {
-            if(map.containsKey(className)){
-                instance = map.get(className);
+        synchronized (map){
+            try {
+                if(map.containsKey(className)){
+                    instance = map.get(className);
 
-            }else {
-                instance = Class.forName(className).newInstance();
-                map.put(className, instance);
-                return instance;
+                }else {
+                    instance = Class.forName(className).newInstance();
+                    map.put(className, instance);
+                    return instance;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return null;
     }
