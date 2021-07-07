@@ -16,7 +16,6 @@ public class WaitNotifyDemo {
         int size=10;
         Producer producer = new Producer(queues, size);
         Consumer consumer = new Consumer(queues, size);
-
         Thread t1=new Thread(producer);
         Thread t2=new Thread(consumer);
         t1.start();
