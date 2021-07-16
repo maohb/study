@@ -2,6 +2,7 @@ package com.steven.study;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 /**
  * @program study
@@ -20,5 +21,6 @@ public class WaitNotifyDemo {
         Thread t2=new Thread(consumer);
         t1.start();
         t2.start();
+
     }
 }
